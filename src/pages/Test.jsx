@@ -18,15 +18,19 @@ import "swiper/css/effect-fade";
 //Ensuite, le bout de composant généré par le map à un key=index ou key=event.id
 
 export const Test = () => {
+
   const africa = africa;
   const europe = europe;
   const asia = asia;
   const northAmerica = northAmerica;
   const southAmerica = southAmerica;
 
-  const [displayPicture, setDisplayPicture] = useState([]);
-
   const [countries, setCountries] = useState();
+  const [displayPicture, setDisplayPicture] = useState(countries);
+
+  const handleClick = (e) => {
+    setDisplayPicture(e.target.value);
+}
 
   // Africa button active on loading page (useRef + useEffect)
   const buttonAfrica = useRef(null);
@@ -36,7 +40,7 @@ export const Test = () => {
   }, []);
 
   console.log(countries);
-  
+
   return (
     <div>
       <div className="btn">
@@ -44,41 +48,36 @@ export const Test = () => {
           // define the acive button by default
           ref={buttonAfrica}
           className="btn-hover color-8"
-          onClick={() => {
-            setDisplayPicture(africa);
-          }}
+          value={africa}
+          onClick={handleClick}
         >
           Africa
         </button>
         <button
           className="btn-hover color-8"
-          onClick={() => {
-            setDisplayPicture(europe);
-          }}
+          value={europe}
+          onClick={handleClick}
         >
           Europe
         </button>
         <button
           className="btn-hover color-8"
-          onClick={() => {
-            setDisplayPicture(asia);
-          }}
+          value={asia}
+          onClick={handleClick}
         >
           Asia
         </button>
         <button
           className="btn-hover color-8"
-          onClick={() => {
-            setDisplayPicture(northAmerica);
-          }}
+          value={northAmerica}
+          onClick={handleClick}
         >
           North America
         </button>
         <button
           className="btn-hover color-8"
-          onClick={() => {
-            setDisplayPicture(southAmerica);
-          }}
+          value={southAmerica}
+          onClick={handleClick}
         >
           South America
         </button>
@@ -99,9 +98,9 @@ export const Test = () => {
           mousewheel={true}
         >
           <div>
-            {countries &&
-            countries
-            .filter(country => country.country)
+            {displayPicture &&
+            displayPicture
+            .filter(country => country.setCountries)
             .map((country, index) => (
                 <SwiperSlide>
                   <div key={index}>
