@@ -80,8 +80,8 @@ export const HomeTwo = () => {
             {displayPicture &&
             displayPicture
             .map((count, index) => (
-                <SwiperSlide>
-                  <div key={index}>
+                <SwiperSlide key={index}>
+                  <div>
                     <img src={count.image} />
                   </div>
                 </SwiperSlide>

@@ -2,9 +2,6 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./home.css";
 
-// comment importer des images en masse dans fichier => voit fonction boucle sur fichier
-// Axios sur fichier local et non http
-
 // import images
 import africa1 from "../assets/africa1.jpeg";
 import africa2 from "../assets/africa2.jpeg";
@@ -34,12 +31,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
-
-// Pb index https://reactjs.org/docs/lists-and-keys.html
-//Le key est obligatoire en react dans le map.
-//Dans la fonction map, le index est un chiffre généré et incrémenté automatiquement à chaque boucle.
-//Si votre event à un id unique, vous pouvez utiliser celui-ci à la place.
-//Ensuite, le bout de composant généré par le map à un key=index ou key=event.id
 
 export const Home = () => {
   const africa = [africa1, africa2, africa3, africa4];
