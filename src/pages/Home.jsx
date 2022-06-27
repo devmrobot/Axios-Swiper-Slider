@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./home.css";
 
-// comment importer des images en masse dans fichier
-// Gestion de l'index
+// comment importer des images en masse dans fichier => voit fonction boucle sur fichier
 // Axios sur fichier local et non http
 
 // import images
@@ -48,8 +47,6 @@ export const Home = () => {
   const asia = [asia1, asia2, asia3, asia4];
   const northAmerica = [northAmerica1, northAmerica2, northAmerica3, northAmerica4];
   const southAmerica = [southAmerica1, southAmerica2, southAmerica3, southAmerica4];
-
-  const [countries, setCountries] = useState();
 
   const [displayPicture, setDisplayPicture] = useState([]);
 
@@ -124,8 +121,8 @@ export const Home = () => {
           <div>
             {displayPicture &&
               displayPicture.map((picture, index) => (
-                <SwiperSlide>
-                  <div key={index}>
+                <SwiperSlide key={index}>
+                  <div>
                     <img src={picture} />
                   </div>
                 </SwiperSlide>

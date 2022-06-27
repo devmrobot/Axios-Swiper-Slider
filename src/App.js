@@ -2,13 +2,13 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 // Routes
 import { Home } from "./pages/Home";
-import { Test } from "./pages/Test";
+import { HomeTwo } from "./pages/HomeTwo";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/test" element={<Test />} />
+      <Route path="/hometwo" element={<HomeTwo />} />
     </Routes>
   );
 }

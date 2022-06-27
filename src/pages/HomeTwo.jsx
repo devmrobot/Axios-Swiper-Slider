@@ -11,26 +11,9 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 
-// Pb index https://reactjs.org/docs/lists-and-keys.html
-//Le key est obligatoire en react dans le map.
-//Dans la fonction map, le index est un chiffre généré et incrémenté automatiquement à chaque boucle.
-//Si votre event à un id unique, vous pouvez utiliser celui-ci à la place.
-//Ensuite, le bout de composant généré par le map à un key=index ou key=event.id
+export const HomeTwo = () => {
 
-export const Test = () => {
-
-  const africa = africa;
-  const europe = europe;
-  const asia = asia;
-  const northAmerica = northAmerica;
-  const southAmerica = southAmerica;
-
-  const [countries, setCountries] = useState();
-  const [displayPicture, setDisplayPicture] = useState(countries);
-
-  const handleClick = (e) => {
-    setDisplayPicture(e.target.value);
-}
+  const [displayPicture, setDisplayPicture] = useState([]);
 
   // Africa button active on loading page (useRef + useEffect)
   const buttonAfrica = useRef(null);
@@ -39,7 +22,7 @@ export const Test = () => {
     buttonAfrica.current.click();
   }, []);
 
-  console.log(countries);
+ // console.log(countries.filter(count => count.country === "africa"));
 
   return (
     <div>
@@ -48,36 +31,32 @@ export const Test = () => {
           // define the acive button by default
           ref={buttonAfrica}
           className="btn-hover color-8"
-          value={africa}
-          onClick={handleClick}
+          // add filter on button 
+          onClick={() => {setDisplayPicture(countries.filter(count => count.country === "africa"))}}
         >
           Africa
         </button>
         <button
           className="btn-hover color-8"
-          value={europe}
-          onClick={handleClick}
+          onClick={() => {setDisplayPicture(countries.filter(count => count.country === "europe"))}}
         >
           Europe
         </button>
         <button
           className="btn-hover color-8"
-          value={asia}
-          onClick={handleClick}
+          onClick={() => {setDisplayPicture(countries.filter(count => count.country === "asia"))}}
         >
           Asia
         </button>
         <button
           className="btn-hover color-8"
-          value={northAmerica}
-          onClick={handleClick}
+          onClick={() => {setDisplayPicture(countries.filter(count => count.country === "northAmerica"))}}
         >
           North America
         </button>
         <button
           className="btn-hover color-8"
-          value={southAmerica}
-          onClick={handleClick}
+          onClick={() => {setDisplayPicture(countries.filter(count => count.country === "southAmerica"))}}
         >
           South America
         </button>
@@ -100,11 +79,10 @@ export const Test = () => {
           <div>
             {displayPicture &&
             displayPicture
-            .filter(country => country.setCountries)
-            .map((country, index) => (
+            .map((count, index) => (
                 <SwiperSlide>
                   <div key={index}>
-                    <img src={country.image} />
+                    <img src={count.image} />
                   </div>
                 </SwiperSlide>
               ))}
